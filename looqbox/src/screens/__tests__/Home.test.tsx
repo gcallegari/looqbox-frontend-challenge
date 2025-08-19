@@ -12,10 +12,8 @@ describe("Home", () => {
         <BrowserRouter>
           <Home />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
-    expect(
-      screen.getByText(/Inteligência para sua Pokédex/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Inteligência para sua Pokédex/i)).toBeInTheDocument();
   });
 });

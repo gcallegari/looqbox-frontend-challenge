@@ -1,5 +1,5 @@
-import { Input, Typography, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { Input, Space, Typography } from "antd";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Badge, BadgesRow, HeroContainer, HeroWrap } from "./Hero.styles";
 
@@ -38,7 +38,6 @@ export default function Hero() {
           <BadgesRow>
             <Badge>+1000 espécies</Badge>
             <Badge>API pública</Badge>
-            <Badge>SPA com React</Badge>
           </BadgesRow>
         </Space>
       </HeroContainer>

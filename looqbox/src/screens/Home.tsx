@@ -1,21 +1,9 @@
-import {
-  Card,
-  Col,
-  Empty,
-  Pagination,
-  Row,
-  Spin,
-  Typography,
-  message,
-} from "antd";
+import { Card, Col, Empty, Pagination, Row, Spin, Typography, message } from "antd";
 import { useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useGetPokemonByNameQuery, useGetPokemonListQuery } from "../features/pokeapi";
 import Hero from "../features/pokedex/components/Hero/Hero";
 import Container from "../shared/ui/Container/Container";
-import {
-  useGetPokemonByNameQuery,
-  useGetPokemonListQuery,
-} from "../features/pokeapi";
 
 const PAGE_SIZE = 24;
 
@@ -26,10 +14,7 @@ export default function Home() {
   const page = Number(params.get("page") ?? "1");
   const offset = (page - 1) * PAGE_SIZE;
 
-  const listQ = useGetPokemonListQuery(
-    { offset, limit: PAGE_SIZE },
-    { skip: !!q }
-  );
+  const listQ = useGetPokemonListQuery({ offset, limit: PAGE_SIZE }, { skip: !!q });
   const singleQ = useGetPokemonByNameQuery(q, { skip: !q });
 
   const isLoading = listQ.isLoading || singleQ.isLoading;
@@ -38,7 +23,6 @@ export default function Home() {
   const data = useMemo(() => {
     if (q) {
       if (singleQ.data) {
-        // use a URL com ID para manter o parse do id funcionando
         return {
           count: 1,
           results: [
@@ -71,10 +55,7 @@ export default function Home() {
             <Row gutter={[16, 16]}>
               {data.results.map((p) => {
                 const name = p.name;
-                const id = parseInt(
-                  p.url.split("/").filter(Boolean).pop() || "0",
-                  10
-                );
+                const id = parseInt(p.url.split("/").filter(Boolean).pop() || "0", 10);
                 const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id || ""}.png`;
                 return (
                   <Col xs={12} sm={8} md={6} lg={4} key={name}>
@@ -95,10 +76,7 @@ export default function Home() {
                         />
                       }
                     >
-                      <Typography.Text
-                        strong
-                        style={{ textTransform: "capitalize" }}
-                      >
+                      <Typography.Text strong style={{ textTransform: "capitalize" }}>
                         {name}
                       </Typography.Text>
                     </Card>

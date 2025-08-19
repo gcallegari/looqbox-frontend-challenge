@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const HeroWrap = styled.section`
   padding: 64px 16px;
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(111,79,242,.35), transparent 60%),
-    radial-gradient(1000px 500px at 80% 0%, rgba(34,211,238,.20), transparent 60%);
+    radial-gradient(1200px 600px at 20% -10%, rgba(111, 79, 242, 0.35), transparent 60%),
+    radial-gradient(1000px 500px at 80% 0%, rgba(34, 211, 238, 0.2), transparent 60%);
   text-align: center;
 `;
 

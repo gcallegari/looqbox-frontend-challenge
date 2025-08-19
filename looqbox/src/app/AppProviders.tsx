@@ -1,10 +1,11 @@
-import { GlobalStyles } from "@/shared/styles/GlobalStyles";
-import { theme } from "@/shared/styles/theme";
-import { store } from "@/store";
 import { ConfigProvider, theme as antdTheme } from "antd";
 import "antd/dist/reset.css";
 import { Provider } from "react-redux";
+
 import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "../shared/styles/GlobalStyles";
+import { theme } from "../shared/styles/theme";
+import { store } from "../store";
 
 export function AppProviders({ children }: { children: React.ReactNode }) {
   return (

@@ -1,16 +1,9 @@
 import { ArrowLeftOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
 import { Button, Card, Descriptions, Space, Tag, Typography } from "antd";
 import { Link, useParams } from "react-router-dom";
-import Container from "../shared/ui/Container/Container";
-import {
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { toggleFavorite } from "../features/favoritesSlice";
+import Container from "../shared/ui/Container/Container";
 
 import { useGetPokemonByNameQuery } from "../features/pokeapi";
 import { useAppDispatch, useAppSelector } from "../utils/hooks";
@@ -49,10 +42,7 @@ export default function Details() {
           <Link to="/">
             <Button icon={<ArrowLeftOutlined />}>Voltar</Button>
           </Link>
-          <Typography.Title
-            level={2}
-            style={{ margin: 0, textTransform: "capitalize" }}
-          >
+          <Typography.Title level={2} style={{ margin: 0, textTransform: "capitalize" }}>
             {data.name}
           </Typography.Title>
           <Button
@@ -101,10 +91,10 @@ export default function Details() {
                   <Bar dataKey="value" />
                 </BarChart>
               </ResponsiveContainer>
-            </Container>
+            </div>
           </Space>
         </Card>
       </Space>
-    </Container>
+    </div>
   );
 }

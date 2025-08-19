@@ -52,21 +52,21 @@ Abra `http://localhost:5173` no navegador (ou a porta indicada pelo Vite).
 Exemplo de teste com Vitest + Testing Library:
 
 ```tsx
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from '../../store';
-import { BrowserRouter } from 'react-router-dom';
-import Home from '../Home';
-import { describe, it, expect } from 'vitest';
+import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { store } from "../../store";
+import { BrowserRouter } from "react-router-dom";
+import Home from "../Home";
+import { describe, it, expect } from "vitest";
 
-describe('Home', () => {
-  it('renderiza hero corretamente', () => {
+describe("Home", () => {
+  it("renderiza hero corretamente", () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
           <Home />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     expect(screen.getByText(/Inteligência para sua Pokédex/i)).toBeInTheDocument();
   });
